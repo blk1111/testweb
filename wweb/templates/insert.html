@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>是否確定新增{{ ssplist.sname }}?</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-success" value="確定">
+    <input type="submit" onclick="history.back()" class="btn btn-warning" value="取消">
+</form>
+
+{% endblock  %}

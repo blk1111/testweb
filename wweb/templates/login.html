@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="login" action="/splist/" method="get">
+  {% csrf_token %} 
+  <input id="name" type="text" name="name" placeholder="搜尋名稱">    
+  <input id="page" type="number" name="page" placeholder="頁數">
+  <input type="submit" value="搜尋">
+  <a href="/">登出</a>
+</form>
+<hr>
+<div class = "row">
+{% for p in splist %}
+<div class="card" style="width: 16rem;">
+    <img class="card-img-top" src={{ p.png }} alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">{{ p.name }}</p>
+      <P class="card-text">{{ p.price }}</P>
+      <td>
+        <a href="{% url 'update' p.id %}" class="btn btn-info">修改</a>
+        <a href="{% url 'del' p.id %}" class="btn btn-danger">刪除</a>
+    </td>
+    </div> 
+    
+  </div>
+  {% endfor%}
+</div>
+
+{% endblock %}

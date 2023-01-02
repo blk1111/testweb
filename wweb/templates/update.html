@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>資料修改</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="form-group">
+
+            
+            <input id="name" type="text" name="name" value="{{ plist.name }}" class="input"> 
+            <br/>
+            <input id="png" type="text" name="png" value="{{ plist.png }}" class="input"> 
+            <br/>
+            <input id="pic" type="text" name="pic" value="{{ plist.price }}" class="input"> 
+            <br/>
+            <input type="submit" class="btn btn-success" value="更新">
+            </div>
+        </div>
+    </form>
+ {% endblock %}

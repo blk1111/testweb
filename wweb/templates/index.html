@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="login" action="/login/" method="post">
+  {% csrf_token %} 
+  <label for="user">帳號 : </label>
+  <input id="user" type="text" name="user" value="" placeholder="帳號"> 
+  <label for="pwd">密碼 : </label>   
+  <input id="pwd" type="password" name="pwd" value="" placeholder="密碼">
+  <input type="submit" value="登入">
+</form>
+<h1>資料展示</h1>
+<hr>
+
+<div class = "row">
+{% for p in splist %}
+<div class="card" style="width: 16rem;">
+    <img class="card-img-top" src={{ p.png }} alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">{{ p.name }}</p>
+      <P class="card-text">{{ p.price }}</P>
+      
+    </div>
+  </div>
+  {% endfor%}
+</div>
+
+{% endblock %}

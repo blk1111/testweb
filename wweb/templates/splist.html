@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="splist" action="/splist/" method="post">
+  {% csrf_token %}
+    <input type="submit" class="btn btn-success" value="返回登入頁面">
+</form>
+<hr>
+
+    <form action="" method="POST">
+        
+        <div class = "row">
+            {% for p in ssplist %}
+            
+            <div class="card" style="width: 16rem;">
+                <img id="png" name="png" class="card-img-top" src={{ p.spng }} alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text" id="name" name="name">{{ p.sname }}</p>
+                  <P class="card-text" id="pic" name="pic">{{ p.spic }}</P>
+                  <td>
+                    <a href="{% url 'Insert' p.id %}" class="btn btn-info">新增</a>
+                </td>
+                </div> 
+                
+              </div>
+              
+              {% endfor%}
+            </div>
+    </form>
+{% endblock %}
